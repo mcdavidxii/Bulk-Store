@@ -1,0 +1,36 @@
+﻿@model Category
+
+
+<form method="post" asp-action="DeletePOST">
+
+        <!--gettting the id of the current object but will hide it-->
+        <input asp-for = "ID" hidden />
+       <div class="border p-3 mt-4">
+           <h2 class="text-primary">
+               Delete Category
+           </h2>
+           <hr />
+
+          
+
+           <div class="mb-3">
+               <label asp-for="Name"></label>
+               <input asp-for="Name" class="form-control"/>
+               <span asp-validation-for="Name" disabled class="text-danger"></span>
+           </div>
+             <div class="mb-3">
+               <label asp-for="DisplayOrder"></label>
+               <input asp-for="DisplayOrder" class="form-control"/>
+               <!--Validation on the client side-->
+               <span asp-validation-for="DisplayOrder" disabled class="text-danger"></span>
+           </div>
+           <button type="submit" class="btn btn-danger" style="width:150px">Update</button>
+           <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list </a>
+       </div>
+</form>
+<!--validation on the server side-->
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
